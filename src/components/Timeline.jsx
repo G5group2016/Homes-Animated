@@ -94,7 +94,7 @@ export default function Timeline() {
 
         if (content) {
           gsap.fromTo(content,
-            { opacity: 0.3, x: 20 },
+            { opacity: 1, x: 20 },
             {
               opacity: 1,
               x: 0,
@@ -113,9 +113,9 @@ export default function Timeline() {
   }, []);
 
   return (
-    <section 
-      id="process" 
-      ref={containerRef} 
+    <section
+      id="process"
+      ref={containerRef}
       className="section section-darker"
     >
       <div className="container grid-2" style={{ alignItems: 'flex-start' }}>
@@ -129,7 +129,7 @@ export default function Timeline() {
           </p>
         </div>
 
-        <div 
+        <div
           ref={stepsRef}
           style={{
             position: 'relative',
@@ -140,7 +140,7 @@ export default function Timeline() {
             minHeight: '600px'
           }}
         >
-          <div 
+          <div
             style={{
               position: 'absolute',
               top: '5px',
@@ -151,7 +151,7 @@ export default function Timeline() {
             }}
           />
 
-          <div 
+          <div
             ref={pathLineRef}
             style={{
               position: 'absolute',
@@ -165,7 +165,7 @@ export default function Timeline() {
           />
 
           {steps.map((step, idx) => (
-            <div 
+            <div
               key={idx}
               style={{
                 position: 'relative',
@@ -173,7 +173,7 @@ export default function Timeline() {
                 flexDirection: 'column'
               }}
             >
-              <div 
+              <div
                 className="timeline-bullet"
                 style={{
                   position: 'absolute',
@@ -189,44 +189,51 @@ export default function Timeline() {
                 }}
               />
 
-              <div 
+              <div
                 className="timeline-content"
                 style={{
-                  transition: 'opacity 0.6s ease, transform 0.6s ease'
+                  transition: 'opacity 0.6s ease, transform 0.6s ease',
+                  maxWidth: '620px',
                 }}
               >
-                <span 
+                <span
                   style={{
-                    fontSize: '0.75rem',
-                    letterSpacing: '0.15em',
+                    fontSize: '0.8rem',
+                    letterSpacing: '0.18em',
                     textTransform: 'uppercase',
                     color: 'var(--accent)',
                     display: 'block',
-                    marginBottom: '6px',
-                    fontWeight: 500
+                    marginBottom: '10px',
+                    fontWeight: 600,
+                    opacity: 0.95
                   }}
                 >
                   {step.subtitle}
                 </span>
-                
-                <h3 
+
+                <h3
                   style={{
-                    fontSize: '1.6rem',
-                    fontWeight: 500,
-                    color: '#ffffff',
-                    marginBottom: '10px',
+                    fontSize: '1.75rem',
+                    fontWeight: 600,
+                    color: '#fff',
+                    marginBottom: '14px',
+                    lineHeight: 1.25,
+                    letterSpacing: '-0.02em',
                     fontFamily: 'var(--font-display)',
-                    letterSpacing: '-0.01em'
+                    textShadow: '0 2px 12px rgba(0,0,0,0.35)'
                   }}
                 >
                   {step.title}
                 </h3>
-                
-                <p 
+
+                <p
                   style={{
-                    fontSize: '0.95rem',
-                    lineHeight: '1.6',
-                    color: 'var(--text-secondary)'
+                    fontSize: '1rem',
+                    lineHeight: '1.9',
+                    color: 'rgba(255,255,255,0.82)',
+                    fontWeight: 400,
+                    letterSpacing: '0.01em',
+                    maxWidth: '560px'
                   }}
                 >
                   {step.desc}
